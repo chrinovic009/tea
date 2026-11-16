@@ -51,7 +51,23 @@
       (nom.value.trim()?mail:nom).focus();return;
     }
     var subj=document.getElementById("dom").options[document.getElementById("dom").selectedIndex].text;
-    ok.textContent=EN?"Thank you "+nom.value.trim()+". Your message (“"+subj+"”) is ready. Preview: sending will be connected to your mailbox when the site goes live.":"Merci "+nom.value.trim()+". Votre message (« "+subj+" ») est prêt. Aperçu : l'envoi sera relié à votre messagerie lors de la mise en ligne.";
+    var btn=form.querySelector('button[type="submit"]');
+    var T=EN?{sending:"Sending…",ok:"Thank you "+nom.value.trim()+". Your message has been sent. We will get back to you shortly.",wait:"Please wait a few seconds before sending another message.",fail:"Your message could not be sent. Please call us on +243 82 03 95 363 or email info@tea-rdc.com."}
+           :{sending:"Envoi en cours…",ok:"Merci "+nom.value.trim()+". Votre message a bien été envoyé. Nous vous répondrons rapidement.",wait:"Patientez quelques secondes avant d'envoyer un autre message.",fail:"Votre message n'a pas pu être envoyé. Appelez-nous au +243 82 03 95 363 ou écrivez à info@tea-rdc.com."};
+    var fd=new FormData(form);fd.set("objet",subj);fd.set("lang",EN?"en":"fr");
+    ok.textContent=T.sending;if(btn)btn.disabled=true;
+    fetch(form.getAttribute("action")||"contact.php",{method:"POST",body:fd,headers:{"Accept":"application/json"}})
+      .then(function(r){return r.json().then(function(d){return{status:r.status,d:d}})})
+      .then(function(x){
+        if(x.d&&x.d.ok){ok.textContent=T.ok;form.reset();}
+        else if(x.status===429){ok.textContent=T.wait;}
+        else{ok.textContent=T.fail;}
+      })
+      .catch(function(){
+        /* Pas de serveur PHP (aperçu, GitHub Pages) : message d'aperçu */
+        ok.textContent=EN?"Thank you "+nom.value.trim()+". Your message (“"+subj+"”) is ready. Preview: sending works once the site is hosted on Infomaniak.":"Merci "+nom.value.trim()+". Votre message (« "+subj+" ») est prêt. Aperçu : l'envoi fonctionne une fois le site hébergé sur Infomaniak.";
+      })
+      .then(function(){if(btn)btn.disabled=false;});
   })}
 
   /* ==== Animations ==== */

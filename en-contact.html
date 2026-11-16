@@ -11,6 +11,21 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Barlow:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="site.css" rel="stylesheet"/>
+<meta content="Contact TEA in Lubumbashi: +243 82 03 95 363, +243 89 76 45 479, info@tea-rdc.com." name="description"/>
+<link href="https://tea-rdc.com/en-contact.html" rel="canonical"/>
+<link href="https://tea-rdc.com/contact.html" hreflang="fr" rel="alternate"/>
+<link href="https://tea-rdc.com/en-contact.html" hreflang="en" rel="alternate"/>
+<link href="https://tea-rdc.com/contact.html" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="Technical Engineering Appointment" property="og:site_name"/>
+<meta content="Contact · TEA" property="og:title"/>
+<meta content="Contact TEA in Lubumbashi: +243 82 03 95 363, +243 89 76 45 479, info@tea-rdc.com." property="og:description"/>
+<meta content="https://tea-rdc.com/en-contact.html" property="og:url"/>
+<meta content="https://tea-rdc.com/img/hero.jpg" property="og:image"/>
+<meta content="#17120a" name="theme-color"/>
+<link href="favicon.ico" rel="icon" sizes="any"/>
+<link href="img/favicon-192.png" rel="icon" type="image/png"/>
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon"/>
 </head>
 <body>
 <header>
@@ -41,12 +56,13 @@
 <div class="cp-card">
 <h1>Contact us</h1>
 <p>Ready to speak with our team? Contact TEA for a personal discussion on how we can support and strengthen your mining, industrial and construction operations in the Democratic Republic of Congo.</p>
-<form class="cp-form" id="devis" novalidate="">
-<div class="f"><label class="sr" for="nom">Full name</label><input autocomplete="name" id="nom" placeholder="Full name" required=""/></div>
-<div class="f"><label class="sr" for="tel">Phone</label><input autocomplete="tel" id="tel" placeholder="Phone" type="tel"/></div>
-<div class="f full"><label class="sr" for="mail">Email</label><input autocomplete="email" id="mail" placeholder="Email" required="" type="email"/></div>
+<form action="contact.php" class="cp-form" id="devis" method="post" novalidate="">
+<div aria-hidden="true" class="hp"><label for="website">Leave empty</label><input autocomplete="off" id="website" name="website" tabindex="-1"/></div>
+<div class="f"><label class="sr" for="nom">Full name</label><input autocomplete="name" id="nom" name="nom" placeholder="Full name" required=""/></div>
+<div class="f"><label class="sr" for="tel">Phone</label><input autocomplete="tel" id="tel" name="tel" placeholder="Phone" type="tel"/></div>
+<div class="f full"><label class="sr" for="mail">Email</label><input autocomplete="email" id="mail" name="mail" placeholder="Email" required="" type="email"/></div>
 <div class="f full"><label class="sr" for="dom">Subject</label>
-<select id="dom">
+<select id="dom" name="objet">
 <option>Mining works and civil engineering</option>
 <option>Transport and logistics</option>
 <option>Plant and equipment hire</option>
@@ -55,7 +71,7 @@
 <option value="Candidature">Job application</option>
 <option>Other request</option>
 </select></div>
-<div class="f full"><label class="sr" for="msg">Message</label><textarea id="msg" placeholder="Message"></textarea></div>
+<div class="f full"><label class="sr" for="msg">Message</label><textarea id="msg" name="msg" placeholder="Message"></textarea></div>
 <button class="btn" type="submit">Send <span aria-hidden="true">→</span></button>
 <p class="ok" hidden="" id="ok" role="status"></p>
 </form>

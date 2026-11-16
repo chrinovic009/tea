@@ -10,6 +10,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="site.css">
+<meta name="description" content="Contactez TEA à Lubumbashi : +243 82 03 95 363, +243 89 76 45 479, info@tea-rdc.com.">
+<link rel="canonical" href="https://tea-rdc.com/contact.html">
+<link rel="alternate" hreflang="fr" href="https://tea-rdc.com/contact.html">
+<link rel="alternate" hreflang="en" href="https://tea-rdc.com/en-contact.html">
+<link rel="alternate" hreflang="x-default" href="https://tea-rdc.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Technical Engineering Appointment">
+<meta property="og:title" content="Contact · TEA">
+<meta property="og:description" content="Contactez TEA à Lubumbashi : +243 82 03 95 363, +243 89 76 45 479, info@tea-rdc.com.">
+<meta property="og:url" content="https://tea-rdc.com/contact.html">
+<meta property="og:image" content="https://tea-rdc.com/img/hero.jpg">
+<meta name="theme-color" content="#17120a">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="img/favicon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 <header>
@@ -41,12 +56,13 @@
   <div class="cp-card">
     <h1>Contactez-nous</h1>
     <p>Prêt à échanger avec nos équipes ? Contactez TEA pour un entretien personnalisé sur la manière dont nous pouvons accompagner et renforcer vos opérations minières, industrielles et de construction en République Démocratique du Congo.</p>
-    <form id="devis" class="cp-form" novalidate>
-      <div class="f"><label for="nom" class="sr">Nom complet</label><input id="nom" placeholder="Nom complet" required autocomplete="name"></div>
-      <div class="f"><label for="tel" class="sr">Téléphone</label><input id="tel" type="tel" placeholder="Téléphone" autocomplete="tel"></div>
-      <div class="f full"><label for="mail" class="sr">E-mail</label><input id="mail" type="email" placeholder="E-mail" required autocomplete="email"></div>
+    <form id="devis" class="cp-form" action="contact.php" method="post" novalidate>
+      <div class="hp" aria-hidden="true"><label for="website">Ne pas remplir</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="f"><label for="nom" class="sr">Nom complet</label><input id="nom" name="nom" placeholder="Nom complet" required autocomplete="name"></div>
+      <div class="f"><label for="tel" class="sr">Téléphone</label><input id="tel" name="tel" type="tel" placeholder="Téléphone" autocomplete="tel"></div>
+      <div class="f full"><label for="mail" class="sr">E-mail</label><input id="mail" name="mail" type="email" placeholder="E-mail" required autocomplete="email"></div>
       <div class="f full"><label for="dom" class="sr">Objet</label>
-        <select id="dom">
+        <select id="dom" name="objet">
           <option>Travaux miniers et génie civil</option>
           <option>Transport et logistique</option>
           <option>Location d'engins et d'équipements</option>
@@ -55,7 +71,7 @@
           <option value="Candidature">Candidature spontanée</option>
           <option>Autre demande</option>
         </select></div>
-      <div class="f full"><label for="msg" class="sr">Message</label><textarea id="msg" placeholder="Message"></textarea></div>
+      <div class="f full"><label for="msg" class="sr">Message</label><textarea id="msg" name="msg" placeholder="Message"></textarea></div>
       <button type="submit" class="btn">Envoyer <span aria-hidden="true">→</span></button>
       <p id="ok" class="ok" role="status" hidden></p>
     </form>

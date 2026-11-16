@@ -745,3 +745,6 @@ footer.ft .ft-tag{color:var(--ft-fg);margin:18px 0 22px}
 footer.ft h4{letter-spacing:.06em;font-size:17px}
 footer.ft .fgrid{padding-top:64px}
 footer.ft p{color:var(--ft-mute)}
+
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+button[disabled]{opacity:.6;cursor:wait}
